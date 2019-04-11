@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.gouwu.mapper.UserMapper">
+  <resultMap id="UserResultMap" type="com.caicai.gouwu.pojo.User">
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="getUserByName" resultMap="UserResultMap">
+    select * from user where username = #{username}
+  </select>
+
+  <select id="getUserAll" resultMap="UserResultMap">
+    select * from user
+  </select>
+
+  <select id="getUsernameById" resultType="String">
+    select username from user where user_id = 1
+  </select>
+</mapper>

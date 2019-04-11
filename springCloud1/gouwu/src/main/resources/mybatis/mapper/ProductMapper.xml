@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caicai.gouwu.mapper.ProductMapper">
+  <resultMap id="ProductResultMap" type="com.caicai.gouwu.pojo.Product">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="productName" jdbcType="VARCHAR" property="productName" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="detail" jdbcType="DOUBLE" property="detail" />
+    <result column="resourceId" jdbcType="INTEGER" property="resourceId" />
+      <result column="videoId" jdbcType="INTEGER" property="videoId" />
+      <result column="looknum" jdbcType="INTEGER" property="looknum" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="database" jdbcType="VARCHAR" property="database" />
+  </resultMap>
+
+    <select id="getProductByName" resultMap="ProductResultMap" >
+        select * from product where productName = #{productName}
+    </select>
+
+</mapper>
